@@ -29,6 +29,7 @@ class _GamescreenState extends State<Gamescreen> {
         }
         isPlayerTurn = !isPlayerTurn;
       });
+      // playMusic();
     }
 
     void reset() {
@@ -120,6 +121,9 @@ class _GamescreenState extends State<Gamescreen> {
     return SafeArea(
         child: Center(
       child: Scaffold(
+          appBar: AppBar(
+            backgroundColor: Owncolor.maincolor,
+          ),
           backgroundColor: Owncolor.maincolor,
           body: Column(
             children: [
@@ -150,6 +154,9 @@ class _GamescreenState extends State<Gamescreen> {
                   ],
                 ),
               ),
+              SizedBox(
+                height: 20,
+              ),
               Expanded(
                 child: GridView.builder(
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -179,11 +186,21 @@ class _GamescreenState extends State<Gamescreen> {
                   },
                 ),
               ),
-              ElevatedButton(
-                  onPressed: () {
-                    reset();
-                  },
-                  child: Text("Reset"))
+              Padding(
+                padding: const EdgeInsets.only(bottom: 30),
+                child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        fixedSize: Size(300, 50),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10))),
+                    onPressed: () {
+                      reset();
+                    },
+                    child: Text(
+                      "Rest",
+                      style: Textstyleown.text,
+                    )),
+              ),
             ],
           )),
     ));
